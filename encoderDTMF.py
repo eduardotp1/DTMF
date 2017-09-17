@@ -1,4 +1,5 @@
 import sounddevice as sd
+#1
 fs = 44100
 def audioGenetator():
     
