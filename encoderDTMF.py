@@ -1,25 +1,31 @@
 import sounddevice as sd
-#1
+import numpy as np
+import math 
+import matplotlib.pyplot as plt
+
 fs = 44100
-def audioGenetator():
+def audioGenetator(numero):
     
     audio = sd.rec(int(1*fs), fs, channels=1)
+    t = 0.4
+    x = np.linspace(0,t,fs*t)
+    y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
+   
+    sd.play(y1, fs)
     sd.wait()
-    
-    num_1 = [697,1209]
-    num_2 = [697,1336]
-    num_3 = [697,1477]
-    num_4 = [770,1209]
-    num_5 = [770,1336]
-    num_6 = [770,1477]
-    num_7 = [852,1209]
-    num_8 = [852,1336]
-    num_9 = [852,1477]
-    num_0 = [941,1336]
 
-    y = audio[:,0]
+def graphicGenerator(numero):
+     t = 0.5
+     x = np.linspace(0,t,fs*t)
+     y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
+     plt.clf()
+     plt.plot(x[0:1000], y1[0:1000])
+     plt.xlabel('Angle [rad]')
+     plt.ylabel('sin(x)')
+     plt.axis('tight')
+     plt.show()
 
     # reproduz o som
-    sd.play(y, fs)
+    
 
-audioGenetator()
+
