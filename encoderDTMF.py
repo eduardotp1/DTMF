@@ -4,9 +4,9 @@ import math
 import matplotlib.pyplot as plt
 
 fs = 44100
-def audioGenetator(numero):
+def audioGenerator(numero):
     
-    audio = sd.rec(int(1*fs), fs, channels=1)
+    
     t = 0.4
     x = np.linspace(0,t,fs*t)
     y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])

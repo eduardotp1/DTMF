@@ -6,7 +6,7 @@ import Tkinter as tk
 import time
 from datetime import datetime
 from PIL import ImageTk, Image
-from encoderDTMF import audioGenetator
+from encoderDTMF import audioGenerator
 from encoderDTMF import graphicGenerator
 import numpy as np
 
@@ -80,7 +80,7 @@ class Janela_Principal():
         self.label_status.grid(row=4,column=0,columnspan=3)
 
     def botao_clicado(self,numero):              
-        audioGenetator(numero)
+        audioGenerator(numero)
         graphicGenerator(numero)
 
     #Loop do codigo
