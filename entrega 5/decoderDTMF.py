@@ -5,7 +5,6 @@ import sched, time
 import threading
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import cPickle as pickle
 
 
 fs = 44100
