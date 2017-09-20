@@ -1,5 +1,5 @@
 # Camada Física - Projeto 2 - DTMF
-Gabriel Moreira e Daniel Ruhman
+Gabriel Moreira e Eduardo Tirta
 
 ## Gráficos de resposta dos tons
 ### Diagrama de camadas
@@ -9,4 +9,4 @@ Gabriel Moreira e Daniel Ruhman
 
 ### Diagrama de funcionamento
 
- ![Diagrama de funcionamento](images/final.002.jpeg)
+ ![Diagrama de funcionamento](imgs/tone2.jpg)
