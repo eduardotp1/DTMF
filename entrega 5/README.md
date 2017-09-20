@@ -4,11 +4,11 @@ Gabriel Moreira e Eduardo Tirta
 ## Gráficos de resposta dos tons
 
 
-|  Tom  | Original      | Resposta      |
-|-------| ------------- | ------------- |
-|  1  |![Tom número 1](imgs/tone_original1.png  =100x20)| ![Tom número 1](imgs/tone1.png) |
-|  2  | ![Tom número 1](imgs/tone_original2.png)  | ![Tom número 1](imgs/tones2.png)  |
-|  3  | ![Tom número 1](imgs/tone_original3.png)  | ![Tom número 1](imgs/tones3.png)  |
+| Tom |                 Original                  |             Resposta             |
+|-----| ----------------------------------------- | -------------------------------- |
+|  1  |![Tom número 1](imgs/tone_original1.png) { width: 200px; }  | ![Tom número 1](imgs/tone1.png)  |
+|  2  | ![Tom número 1](imgs/tone_original2.png)  | ![Tom número 1](imgs/tones2.png) |
+|  3  | ![Tom número 1](imgs/tone_original3.png)  | ![Tom número 1](imgs/tones3.png) |
 |  4  | ![Tom número 1](imgs/tone_original4.png)  | ![Tom número 1](imgs/tone4.png)  |
 |  5  | ![Tom número 1](imgs/tone_original5.png)  | ![Tom número 1](imgs/tone5.png)  |
 |  6  | ![Tom número 1](imgs/tone_original6.png)  | ![Tom número 1](imgs/tone6.png)  |
