@@ -19,13 +19,8 @@ plt.ylabel('sin(x)')
 
 def animate(i):
     audio = sd.rec(int(1*fs), fs, channels=1)
-    xar = []
-    yar = []
     y = audio[:,0]
     t = np.linspace(0,1,fs*duration)    
-    # with open('number1.p', 'w+') as f:
-    #     pickle.dump(audio, f)
-    
     ax1.clear()
     ax1.plot(t[0:1000],y[0:1000])
     
