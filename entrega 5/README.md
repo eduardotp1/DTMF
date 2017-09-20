@@ -2,11 +2,11 @@
 Gabriel Moreira e Eduardo Tirta
 
 ## Gráficos de resposta dos tons
-### Diagrama de camadas
+### Tom número 1
 
- ![Tom número 1](imgs/tone1.jpg)
+ ![Tom número 1](imgs/tone1.png)
 
 
-### Diagrama de funcionamento
+### Tom número 2
 
- ![Diagrama de funcionamento](imgs/tone2.jpg)
+ ![Tom número 2](imgs/tone2.png)
