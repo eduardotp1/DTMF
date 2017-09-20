@@ -7,7 +7,7 @@ fs = 44100
 def audioGenerator(numero):
     
     
-    t = 0.4
+    t = 2
     x = np.linspace(0,t,fs*t)
     y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
    
