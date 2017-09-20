@@ -6,7 +6,7 @@ Gabriel Moreira e Eduardo Tirta
 
 | Tom |                 Original                  |             Resposta             |
 |-----| ----------------------------------------- | -------------------------------- |
-|  1  |![Tom número 1](imgs/tone_original1.png{ width: 200px; } ) | ![Tom número 1](imgs/tone1.png)  |
+|  1  |![Tom número 1](imgs/tone_original1.png)   | ![Tom número 1](imgs/tone1.png)  |
 |  2  | ![Tom número 1](imgs/tone_original2.png)  | ![Tom número 1](imgs/tones2.png) |
 |  3  | ![Tom número 1](imgs/tone_original3.png)  | ![Tom número 1](imgs/tones3.png) |
 |  4  | ![Tom número 1](imgs/tone_original4.png)  | ![Tom número 1](imgs/tone4.png)  |
