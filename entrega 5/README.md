@@ -1,6 +1,13 @@
 # Camada Física - Projeto 2 - DTMF
 Gabriel Moreira e Eduardo Tirta
 
+## Geração de tons
+ Cada tom é uma combinação de duas senoides de frequências diferentes, seguindo a tabela DMTF, as senoides foram geradas utilizando a biblioteca numpy, e depois somadas, formando uma senoide única.
+ 
+## Frequências de composição dos tons
+ O tom segue o padrão das frequências da tabela abaixo.
+![Table DMTF](imgs/dmtf.jpg)
+
 ## Gráficos de resposta dos tons
 
 
