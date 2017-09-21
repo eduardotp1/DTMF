@@ -25,7 +25,7 @@ Gabriel Moreira e Eduardo Tirta
 |  0  | ![Tom número 1](imgs/tone_original0.png)  | ![Tom número 1](imgs/tone0.png)  |
 
 
-
+A diferença entre o tom original e o recebido ocorre, principalmente, por captar ruídos do ambiente externo, além disso a uma perda que faz com que a amplitude do gráfico altere
 
 
 
