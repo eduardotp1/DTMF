@@ -9,7 +9,13 @@ Gabriel Moreira e Eduardo Tirta
  
 ## Frequências de composição dos tons
  O tom segue o padrão das frequências da tabela abaixo.
-![Table DMTF](imgs/dmtf.jpg)
+
+| **Hz**  |**1209**|**1336**|**1633**|
+| --------| -------| ------ | ------ |
+| **697** |    1   |    2   |    3   |
+| **770** |    4   |    5   |    6   |
+| **852** |    7   |    8   |    9   |
+| **941** |        |    0   |        |
 
 ## Gráficos de resposta dos tons
 
