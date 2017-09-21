@@ -5,6 +5,8 @@ import sched, time
 import threading
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import cPickle as pickle
+
 
 fs = 44100
 
@@ -22,7 +24,13 @@ def animate(i):
     t = np.linspace(0,1,fs*duration)    
     ax1.clear()
     ax1.plot(t[0:1000],y[0:1000])
+    with open('tone0.txt', 'w+') as f:
+        pickle.dump(y, f)
+
     
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
+
+
+
 
