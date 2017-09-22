@@ -5,9 +5,7 @@ import sched, time
 import threading
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from scipy.fftpack import fft
-from scipy import signal as window
-import soundfile as sf
+
 
 
 fs = 44100.0
@@ -45,6 +43,7 @@ def animate(i):
 ani = animation.FuncAnimation(f, animate, interval=1000)
 
 plt.show()
+
 
 
 
