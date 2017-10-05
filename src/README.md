@@ -36,6 +36,12 @@ Gabriel Moreira e Eduardo Tirta
 
 A diferença entre o tom original e o recebido ocorre, principalmente, por captar ruídos do ambiente externo, além disso a uma perda que faz com que a amplitude do gráfico altere
 
+------------------------------------------------------
+
+# Entrega 6
+
+## Gráficos de comparação do Fourier
+
 
 | Tom |                 Original                  |             Resposta             |
 |-----| ----------------------------------------- | -------------------------------- |
