@@ -1,11 +1,10 @@
 import matplotlib
 matplotlib.use('TkAgg')
 
-from Tkinter import *
-import Tkinter as tk
+from tkinter import *
+import tkinter as tk
 import time
 from datetime import datetime
-from PIL import ImageTk, Image
 from encoderDTMF import audioGenerator
 from encoderDTMF import graphicGenerator
 import numpy as np

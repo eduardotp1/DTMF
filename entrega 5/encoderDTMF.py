@@ -7,7 +7,7 @@ fs = 44100
 def audioGenerator(numero):
     
     
-    t = 2
+    t = 1
     x = np.linspace(0,t,fs*t)
     y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
    
@@ -15,7 +15,7 @@ def audioGenerator(numero):
     sd.wait()
 
 def graphicGenerator(numero):
-     t = 0.5
+     t = 1
      x = np.linspace(0,t,fs*t)
      y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
      plt.clf()
