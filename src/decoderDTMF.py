@@ -57,7 +57,7 @@ def animate(i):
 # BEGIN PROGRAM
 show = """
 DECODER
-
+	
 Submit File : 1
 Live: 2
 -----------------
