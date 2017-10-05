@@ -56,3 +56,5 @@ A diferença entre o tom original e o recebido ocorre, principalmente, por capta
 |  9  | ![Tom número 1](imgs_f/fourier-o9.png)  | ![Tom número 1](imgs_f/fourier9.png)  |
 |  0  | ![Tom número 1](imgs_f/fourier-o0.png)  | ![Tom número 1](imgs_f/fourier0.png)  |
 
+
+A diferença entre o tom original e o recebido ocorre, principalmente, por captar ruídos do ambiente externo
