@@ -37,5 +37,16 @@ Gabriel Moreira e Eduardo Tirta
 A diferença entre o tom original e o recebido ocorre, principalmente, por captar ruídos do ambiente externo, além disso a uma perda que faz com que a amplitude do gráfico altere
 
 
+| Tom |                 Original                  |             Resposta             |
+|-----| ----------------------------------------- | -------------------------------- |
+|  1  |![Tom número 1](imgs_f/fourier-o1.png)   | ![Tom número 1](imgs_f/fourier1.png)  |
+|  2  | ![Tom número 1](imgs_f/fourier-o2.png)  | ![Tom número 1](imgs_f/fourier2.png) |
+|  3  | ![Tom número 1](imgs_f/fourier-o3.png)  | ![Tom número 1](imgs_f/fourier3.png) |
+|  4  | ![Tom número 1](imgs_f/fourier-o4.png)  | ![Tom número 1](imgs_f/fourier4.png)  |
+|  5  | ![Tom número 1](imgs_f/fourier-o5.png)  | ![Tom número 1](imgs_f/fourier5.png)  |
+|  6  | ![Tom número 1](imgs_f/fourier-o6.png)  | ![Tom número 1](imgs_f/fourier6.png)  |
+|  7  | ![Tom número 1](imgs_f/fourier-o7.png)  | ![Tom número 1](imgs_f/fourier7.png)  |
+|  8  | ![Tom número 1](imgs_f/fourier-o8.png)  | ![Tom número 1](imgs_f/fourier8.png)  |
+|  9  | ![Tom número 1](imgs_f/fourier-o9.png)  | ![Tom número 1](imgs_f/fourier9.png)  |
+|  0  | ![Tom número 1](imgs_f/fourier-o0.png)  | ![Tom número 1](imgs_f/fourier0.png)  |
 
- 
