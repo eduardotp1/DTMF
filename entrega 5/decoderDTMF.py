@@ -18,10 +18,25 @@ def calcFFT(signal, fs):
 	return(xf, np.abs(yf[0:N//2]))
 
 def findFrequencies(X, Y):
-	ay = max(Y)
-	index_a, = np.where(Y == ay)
-	ax = X[index_a]
-	return ax,ay
+	lista_y = []
+	lista_x = []
+	for i in range (len(Y[0:3000])):
+		if Y[i] > 15000:
+			if Y[i] not in lista_y:
+				lista_y.append(Y[i])
+				lista_x.append(i)
+	return lista_x,lista_y
+
+def findTone(frequencies):
+	tones = [[941,1336],[675,1209],[675,1336],[675,1477],
+			 [770,1209],[770,1336],[770,1477],
+			 [852,1209],[852,1336],[852,1477]]
+
+	for i in range (len(tones)):
+		if frequencies == tones[i]:
+			return i
+
+	
 
 
 def animate(i):
@@ -30,11 +45,13 @@ def animate(i):
 	audio = sd.rec(int(duration*fs), fs, channels=1)
 	y = audio[:,0]
 	t = np.linspace(0,1,fs*duration)
-	X, Y = calcFFT(y,fs)
+	X, Y = calcFFT(y, fs)
+	lista_x,lista_y = findFrequencies(X,Y)
+	print('Tone:', findTone(lista_x))
 	ax1[0].clear()
 	ax1[0].plot(t[0:1000],y[0:1000])
 	ax1[1].clear()
-	ax1[1].plot(X[0:5000],Y[0:5000])
+	ax1[1].plot(X[0:4000],Y[0:4000])
 
 
 # BEGIN PROGRAM
@@ -75,11 +92,10 @@ Choose Tone
 
 	# Cacula a trasformada de Fourier do sinal
 	X, Y = calcFFT(y, fs)
-	ax,ay = findFrequencies(X,Y) 
-	peakind = signal.find_peaks_cwt(Y, np.arange(500,1500))
-	print(peakind)
+	lista_x,lista_y = findFrequencies(X,Y)
+	print('Tone:', findTone(lista_x))
 	
-	plt.plot([ax],[ay], 'ro')
+	plt.plot(lista_x,lista_y, 'ro')
 
 	
 
