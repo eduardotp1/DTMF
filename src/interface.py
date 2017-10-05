@@ -6,7 +6,7 @@ import tkinter as tk
 import time
 from datetime import datetime
 from encoderDTMF import audioGenerator
-from encoderDTMF import graphicGenerator
+from encoderDTMF import graphicGenerator, fourierGenerator
 import numpy as np
 
 class Janela_Principal():
@@ -79,8 +79,8 @@ class Janela_Principal():
         self.label_status.grid(row=4,column=0,columnspan=3)
 
     def botao_clicado(self,numero):              
-        audioGenerator(numero)
-        graphicGenerator(numero)
+        # audioGenerator(numero)
+        fourierGenerator(numero)
 
     #Loop do codigo
     def iniciar(self):

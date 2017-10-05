@@ -5,6 +5,7 @@ import soundfile as sf
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from scipy import signal
+import math
 
 def calcFFT(signal, fs):
 	from scipy.fftpack import fft
@@ -20,8 +21,8 @@ def calcFFT(signal, fs):
 def findFrequencies(X, Y):
 	lista_y = []
 	lista_x = []
-	for i in range (len(Y[0:3000])):
-		if Y[i] > 15000:
+	for i in range (len(Y[0:4000])):
+		if Y[i] > -5:
 			if Y[i] not in lista_y:
 				lista_y.append(Y[i])
 				lista_x.append(i)
@@ -36,6 +37,12 @@ def findTone(frequencies):
 		if frequencies == tones[i]:
 			return i
 
+def transformDecibel(list_y):
+	new_list = []
+	for i in range (len(list_y)):
+		a = 10* math.log10(list_y[i]/20000)
+		new_list.append(a)
+	return new_list
 	
 
 
@@ -46,6 +53,7 @@ def animate(i):
 	y = audio[:,0]
 	t = np.linspace(0,1,fs*duration)
 	X, Y = calcFFT(y, fs)
+	Y = transformDecibel(Y)
 	lista_x,lista_y = findFrequencies(X,Y)
 	print('Tone:', findTone(lista_x))
 	ax1[0].clear()
@@ -92,6 +100,7 @@ Choose Tone
 
 	# Cacula a trasformada de Fourier do sinal
 	X, Y = calcFFT(y, fs)
+	Y = transformDecibel(Y)
 	lista_x,lista_y = findFrequencies(X,Y)
 	print('Tone:', findTone(lista_x))
 	
@@ -101,7 +110,7 @@ Choose Tone
 
 
 	## Exibe sinal no tempo
-	plt.plot(X[0:3000],Y[0:3000])
+	plt.plot(X[0:4000],Y[0:4000])
 	plt.grid()
 	plt.title('Fourier')
 	plt.show()
