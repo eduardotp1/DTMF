@@ -36,7 +36,7 @@ def findFrequencies(X, Y):
 	return lista_x,lista_y
 
 def audioGenerator(numero):
-    t = 1
+    t = 3
     x = np.linspace(0,t,fs*t)
     y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
    
@@ -44,7 +44,7 @@ def audioGenerator(numero):
     sd.wait()
 
 def graphicGenerator(numero):
-     t = 1
+     t = 3
      x = np.linspace(0,t,fs*t)
      y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
      plt.clf()

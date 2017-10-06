@@ -18,20 +18,30 @@ def calcFFT(signal, fs):
 
 	return(xf, np.abs(yf[0:N//2]))
 
-def findFrequencies(X, Y):
+def findFrequencies(X, Y, choose):
+	if choose == 1:
+		corte = -5
+	else:
+		corte = -20
 	lista_y = []
 	lista_x = []
 	for i in range (len(Y[0:4000])):
-		if Y[i] > -5:
-			if Y[i] not in lista_y:
-				lista_y.append(Y[i])
-				lista_x.append(i)
+		if X[i] > 500:
+			if Y[i] > corte:
+				if Y[i] not in lista_y:
+					lista_y.append(Y[i])
+					lista_x.append(i)
 	return lista_x,lista_y
 
 def findTone(frequencies):
-	tones = [[941,1336],[675,1209],[675,1336],[675,1477],
-			 [770,1209],[770,1336],[770,1477],
-			 [852,1209],[852,1336],[852,1477]]
+	if choose == 1:
+		tones = [[941,1336],[675,1209],[675,1336],[675,1477],
+				[770,1209],[770,1336],[770,1477],
+				[852,1209],[852,1336],[852,1477]]
+	else:
+		tones = [[941,1336],[697,1209],[697,1336],[697,1477],
+				[770,1209],[770,1336],[770,1477],
+				[852,1209],[852,1336],[852,1477]]
 
 	for i in range (len(tones)):
 		if frequencies == tones[i]:
@@ -50,11 +60,12 @@ def animate(i):
 	fs = 44100.0
 	duration = 1
 	audio = sd.rec(int(duration*fs), fs, channels=1)
+	sd.wait()
 	y = audio[:,0]
 	t = np.linspace(0,1,fs*duration)
 	X, Y = calcFFT(y, fs)
 	Y = transformDecibel(Y)
-	lista_x,lista_y = findFrequencies(X,Y)
+	lista_x,lista_y = findFrequencies(X,Y, choose)
 	print('Tone:', findTone(lista_x))
 	ax1[0].clear()
 	ax1[0].plot(t[0:1000],y[0:1000])
@@ -101,8 +112,8 @@ Choose Tone
 	# Cacula a trasformada de Fourier do sinal
 	X, Y = calcFFT(y, fs)
 	Y = transformDecibel(Y)
-	lista_x,lista_y = findFrequencies(X,Y)
-	print('Tone:', findTone(lista_x))
+	lista_x,lista_y = findFrequencies(X,Y, choose)
+	print('Tone: ',{0}.format(findTone(lista_x)))
 	
 	plt.plot(lista_x,lista_y, 'ro')
 

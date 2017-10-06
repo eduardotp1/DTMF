@@ -79,8 +79,8 @@ class Janela_Principal():
         self.label_status.grid(row=4,column=0,columnspan=3)
 
     def botao_clicado(self,numero):              
-        # audioGenerator(numero)
-        fourierGenerator(numero)
+        audioGenerator(numero)
+        #fourierGenerator(numero)
 
     #Loop do codigo
     def iniciar(self):
