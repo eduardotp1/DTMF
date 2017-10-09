@@ -22,11 +22,11 @@ def findFrequencies(X, Y, choose):
 	if choose == 1:
 		corte = -5
 	else:
-		corte = -20
+		corte = -25
 	lista_y = []
 	lista_x = []
 	for i in range (len(Y[0:4000])):
-		if X[i] > 500:
+		if 1478 > X[i]> 596:
 			if Y[i] > corte:
 				if Y[i] not in lista_y:
 					lista_y.append(Y[i])
@@ -44,7 +44,7 @@ def findTone(frequencies):
 				[852,1209],[852,1336],[852,1477]]
 
 	for i in range (len(tones)):
-		if frequencies == tones[i]:
+		if tones[i][0]in frequencies and tones[i][1] in frequencies:
 			return i
 
 def transformDecibel(list_y):
