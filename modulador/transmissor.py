@@ -36,41 +36,41 @@ def findFrequencies(X, Y):
 	return lista_x,lista_y
 
 def audioGenerator(numero):
-    t = 3
-    x = np.linspace(0,t,fs*t)
-    y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
+	t = 3
+	x = np.linspace(0,t,fs*t)
+	y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
    
-    sd.play(y1, fs)
-    sd.wait()
+	sd.play(y1, fs)
+	sd.wait()
 
 def graphicGenerator(numero):
-     t = 3
-     x = np.linspace(0,t,fs*t)
-     y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
-     plt.clf()
-     plt.plot(x[0:1000], y1[0:1000])
-     plt.xlabel('Angle [rad]')
-     plt.ylabel('sin(x)')
-     plt.axis('tight')
-     plt.show()
+	 t = 3
+	 x = np.linspace(0,t,fs*t)
+	 y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
+	 plt.clf()
+	 plt.plot(x[0:1000], y1[0:1000])
+	 plt.xlabel('Angle [rad]')
+	 plt.ylabel('sin(x)')
+	 plt.axis('tight')
+	 plt.show()
 
-    # reproduz o som
-    
+	# reproduz o som
+	
 def fourierGenerator(numero):
-    t = 1
-    fs = 44100.0
-    x = np.linspace(0,t,fs*t)
+	t = 1
+	fs = 44100.0
+	x = np.linspace(0,t,fs*t)
 
-    y= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
-    X, Y = calcFFT(y, fs)
-    Y = transformDecibel(Y)
-    lista_x,lista_y = findFrequencies(X,Y)
+	y= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
+	X, Y = calcFFT(y, fs)
+	Y = transformDecibel(Y)
+	lista_x,lista_y = findFrequencies(X,Y)
 
 	## Exibe sinal no tempo
-    plt.plot(X[0:4000],Y[0:4000])
-    plt.grid()
-    plt.title('Fourier')
-    plt.show()
+	plt.plot(X[0:4000],Y[0:4000])
+	plt.grid()
+	plt.title('Fourier')
+	plt.show()
 
 
 
