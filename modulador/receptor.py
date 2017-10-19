@@ -8,10 +8,10 @@ from scipy import signal as sg
 class Receptor():
     def __init__(self):
         self.fs = 44100.0
-        self.fc = 3000
+        self.fc = 3500
 
     def record(self):
-        audio = sd.rec(int(6 * self.fs),self.fs,channels=1)
+        audio = sd.rec(int(5 * self.fs),self.fs,channels=1)
         sd.wait()
         y = audio[:,0]
         return y
@@ -49,7 +49,7 @@ class Receptor():
         freqaudiox, freqaudioy = self.calcFFT(audio)
 
         t1,c1 = self.carFrequencies(audio, 9000)
-        t2,c2 = self.carFrequencies(audio, 15000)
+        t2,c2 = self.carFrequencies(audio, 17000)
 
         demoaudio1 = c1 * audio
         demoaudio2 = c2 * audio
@@ -69,6 +69,12 @@ class Receptor():
         # ax2.plot(fdemoaudio2x,demoaudio2_filtrada)
         # plt.show()        
 
+        # sd.play(demoaudio1,self.fs)
+        # sd.wait()
+        sd.play(demoaudio1_filtrada,self.fs)
+        sd.wait()
+        sd.play(demoaudio2_filtrada, self.fs)
+        sd.wait()
 
 if __name__ == "__main__":
 	receptor = Receptor()
