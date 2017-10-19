@@ -78,6 +78,8 @@ class Transmissor:
 		# ax1.plot(fr1,fq1)
 		# ax2.plot(fr2,fq2)
 		# plt.show()
+		self.plotGraph(fr1, fq1, "FOURIER portadora 1")
+		self.plotGraph(fr2, fq2, "FOURIER portadora 2")
 
 		modulo1 = f1_filtrada*c1
 		modulo2 = f2_filtrada*c2
@@ -90,10 +92,10 @@ class Transmissor:
 		self.plotGraph(mx, my, "FOURIER soma modulado ")
 
 
-		print("Clique em um número para tocar o som")
-		x = input()
-		sd.play(ym, self.fs)
-		sd.wait()
+		# print("Clique em um numero para tocar o som")
+		# x = input()
+		# sd.play(ym, self.fs)
+		# sd.wait()
 
 
 		
