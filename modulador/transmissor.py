@@ -2,122 +2,62 @@ import sounddevice as sd
 import numpy as np
 import math 
 import matplotlib.pyplot as plt
-from scipy import signal
+import soundfile as sf
+from scipy import signal as sg
 
+class Transmissor:
 
-fs = 44100.0
+	def __init__(self):
+		self.fc = 3000	# frequencia de corte
+		self.fs = 44100.0 #sample rate
+		self.m1, self.sp1 = sf.read("audio/wubbalubdubdub.wav")
+		self.m2, self.sp2 = sf.read("audio/what_u_know.wav")
 
-def transformDecibel(list_y):
-	new_list = []
-	for i in range (len(list_y)):
-		a = 10* math.log10(list_y[i]/20000)
-		new_list.append(a)
-	return new_list
+	def calcFFT(self,signal, fs):
+		from scipy.fftpack import fft
+		from scipy import signal as window
 
-def calcFFT(signal, fs):
-	from scipy.fftpack import fft
-	from scipy import signal as window
+		N  = len(signal)
+		T  = 1/fs
+		xf = np.linspace(0.0, 1.0/(2.0*T), N//2)
+		yf = fft(signal)
 
-	N  = len(signal)
-	T  = 1/fs
-	xf = np.linspace(0.0, 1.0/(2.0*T), N//2)
-	yf = fft(signal)
+		return(xf, np.abs(yf[0:N//2]))
 
-	return(xf, np.abs(yf[0:N//2]))
-
-def findFrequencies(X, Y):
-	lista_y = []
-	lista_x = []
-	for i in range (len(Y[0:4000])):
-		if Y[i] > -5:
-			if Y[i] not in lista_y:
-				lista_y.append(Y[i])
-				lista_x.append(i)
-	return lista_x,lista_y
-
-def audioGenerator(numero):
-	t = 3
-	x = np.linspace(0,t,fs*t)
-	y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
-   
-	sd.play(y1, fs)
-	sd.wait()
-
-def graphicGenerator(numero):
-	 t = 3
-	 x = np.linspace(0,t,fs*t)
-	 y1= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
-	 plt.clf()
-	 plt.plot(x[0:1000], y1[0:1000])
-	 plt.xlabel('Angle [rad]')
-	 plt.ylabel('sin(x)')
-	 plt.axis('tight')
-	 plt.show()
-
-	# reproduz o som
+	def LPF(self,signal, cutoff_hz, fs):
+		# https://scipy.github.io/old-wiki/pages/Cookbook/FIRFilter.html
+		nyq_rate = fs/2
+		width = 5.0/nyq_rate
+		ripple_db = 60.0 #dB
+		N , beta = sg.kaiserord(ripple_db, width)
+		taps = sg.firwin(N, cutoff_hz/nyq_rate, window=('kaiser', beta))
+		return( sg.lfilter(taps, 1.0, signal))
 	
-def fourierGenerator(numero):
-	t = 1
-	fs = 44100.0
-	x = np.linspace(0,t,fs*t)
-
-	y= np.sin(2*math.pi*x*numero[0]) + np.sin(2*math.pi*x*numero[1])
-	X, Y = calcFFT(y, fs)
-	Y = transformDecibel(Y)
-	lista_x,lista_y = findFrequencies(X,Y)
-
-	## Exibe sinal no tempo
-	plt.plot(X[0:4000],Y[0:4000])
-	plt.grid()
-	plt.title('Fourier')
-	plt.show()
-
-
-
-
-show = """
-TRANSMISSION
+	def carFrequencies(self, signal, f):
+		t = np.linspace(0,len(signal)/self.fs,len(signal))
+		y = np.sin(math.pi*2*t*f)
+		return t,y
 	
-Choose file:
-1 - 2 - 3
------------------
-"""
+	# def plotGraph(self,x,y,title):
+	# 	plt.plot(x,y)
+	# 	plt.title(title)
+	# 	plt.show()
 
-print(show)
-file_chosen = int(input())
+	def main(self):
+		y1 = self.m1[:,0]
+		y2 = self.m2[:,0]
+		f1_filtrada = self.LPF(y1,self.fc,self.fs) # f1 filtrada
+		f2_filtrada = self.LPF(y2,self.fc,self.fs) # f2 filtrada
+		t1,c1 = self.carFrequencies(f1_filtrada,9000) # Portadora 1
+		t2,c2 = self.carFrequencies(f2_filtrada,15000) # Portadora 2
+		fr1,fq1 = self.calcFFT(c1,self.fs) # Fourier portadora 1
+		fr2,fq2 = self.calcFFT(c2,self.fs) # Fourier portadora 2
+		fig2, (ax1,ax2) = plt.subplots(1,2,figsize=(15,5))
+		ax1.plot(fr1,fq1)
+		ax2.plot(fr2,fq2)
+		plt.show()
 
-# SUBMIT FILE
-
-file_string = './tones/audio'+ str(file_chosen) +'.wav'
-
-show_2 = """
------------------
-Choose frequency 1:
------------------
-
-"""
-
-print(show_2)
-frequency_1 = int(input())
-
-show_3 = """
------------------	
-Choose frequency 2:
------------------
-
-"""
-
-print(show_3)
-frequency_2 = int(input())
-
-
-y,fs = sf.read(file_string)
-fs = float(fs)
-
-# Cacula a trasformada de Fourier do sinal
-X, Y = calcFFT(y, fs)
-## Exibe sinal no tempo
-plt.plot(X[0:4000],Y[0:4000])
-plt.grid()
-plt.title('Fourier')
-plt.show()
+		
+if __name__ == "__main__":
+	transmissor = Transmissor()
+	transmissor.main()
