@@ -36,5 +36,35 @@ A banda ocupada pelo sinal é de 7000 _Hz_ pois assim que o arquivo de cada áud
 
 ### Transmissor
 
+**Sinais filtrados no tempo**
+
+|           Sinal 1            |           Sinal 2        |
+|------------------------------|--------------------------|
+| ![sinal 1](media/f1.png)     | ![sinal 2](media/f2.png) | 
+
+---
+
+**Fourier das portadorass**
+
+|          Portadora 1        |        Portadora 2       |
+|-----------------------------|--------------------------|
+| ![sinal 1](media/fp1.png)   | ![sinal 2](media/fp2.png)| 
+
+---
+
+**Fourier dos sinais filtrados**
+
+|           Sinal 1           |           Sinal 2        |
+|-----------------------------|--------------------------|
+| ![sinal 1](media/ff1.png)   | ![sinal 2](media/ff2.png)| 
+
+---
+
+**Fourier dos sinais filtrados somados**
+
+![sinal 1](media/fourier_soma.png)
+
+
+
 ### Receptor 
 
