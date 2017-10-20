@@ -4,6 +4,7 @@ import math
 import matplotlib.pyplot as plt
 import soundfile as sf
 from scipy import signal as sg
+import scipy.io.wavfile as swav
 
 class Receptor():
     def __init__(self):
@@ -64,13 +65,9 @@ class Receptor():
         demoaudio1_filtrada = self.LPF(demoaudio1 ,self.fc, self.fs)
         demoaudio2_filtrada = self.LPF(demoaudio2 ,self.fc, self.fs)    
 
-        # fig, (ax1,ax2) = plt.subplots(1,2,figsize=(15,5))
-        # ax1.plot(fdemoaudio1x,demoaudio1_filtrada)
-        # ax2.plot(fdemoaudio2x,demoaudio2_filtrada)
-        # plt.show()        
+        swav.write("audioreceive1.wav",self.fs,demoaudio1_filtrada)
+        swav.write("audioreceive2.wav",self.fs,demoaudio2_filtrada)
 
-        # sd.play(demoaudio1,self.fs)
-        # sd.wait()
         sd.play(demoaudio1_filtrada,self.fs)
         sd.wait()
         sd.play(demoaudio2_filtrada, self.fs)
