@@ -78,7 +78,7 @@ A banda ocupada pelo sinal é de 7000 _Hz_ pois assim que o arquivo de cada áud
 
 **Sinal recebido no tempo**
 
-![sinal 1](media/final_recebido_tempo.png)
+![sinal 1](media/sinal_recebido_tempo.png)
 
 ---
 
@@ -88,11 +88,11 @@ A banda ocupada pelo sinal é de 7000 _Hz_ pois assim que o arquivo de cada áud
 
 ---
 
-**Fourier do sinal recebido**
+**Sinal recebido demodulado no tempo**
 
 |          Sinal 1                                |        Sinal 2       |
 |-----------------------------                    |--------------------------|
-| ![sinal 1](media/sinal_demodulado_tempo1.png)   | ![sinal 2](media/sinal_demodulado_tempo2.png)| 
+| ![sinal 1](media/sinal_tempo_demodulado1.png)   | ![sinal 2](media/sinal_tempo_demodulado2.png)| 
 
 ---
 
@@ -101,3 +101,7 @@ A banda ocupada pelo sinal é de 7000 _Hz_ pois assim que o arquivo de cada áud
 |          Sinal 1                                |        Sinal 2       |
 |-----------------------------                    |--------------------------|
 | ![sinal 1](media/fourier_audio_filtrado1.png)   | ![sinal 2](media/fourier_audio_filtrado2.png)| 
+
+## Resultados
+
+Os sinais ficaram bem parecidos com os sinais enviados, porém os áudios ficaram um pouco mais "robotizados" e houve uma mínima perda de qualidade.
