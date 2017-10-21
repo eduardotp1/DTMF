@@ -45,25 +45,41 @@ class Receptor():
         taps = sg.firwin(N, cutoff_hz/nyq_rate, window=('kaiser', beta))
         return( sg.lfilter(taps, 1.0, signal))
 
+    def plotGraph(self,x,y,title):
+    	plt.plot(x,y)
+        plt.title(title)
+        plt.show()
+
     def main(self):
         audio = self.record()
         freqaudiox, freqaudioy = self.calcFFT(audio)
 
-        t1,c1 = self.carFrequencies(audio, 9000)
-        t2,c2 = self.carFrequencies(audio, 17000)
+        self.plotGraph(freqaudiox,freqaudioy,"Fourier Sinal Recebido")
+        self.plotGraph(np.linspace(0, len(audio)/self.fs, len(audio)),audio,"Sinal Recebido no Tempo")
+
+        t1,c1 = self.carFrequencies(audio, 5000)
+        t2,c2 = self.carFrequencies(audio, 14000)
 
         demoaudio1 = c1 * audio
         demoaudio2 = c2 * audio
         fdemoaudio1x, fdemoaudio1y = self.calcFFT(demoaudio1)
         fdemoaudio2x, fdemoaudio2y = self.calcFFT(demoaudio2)
 
-        fig, (ax1,ax2) = plt.subplots(1,2,figsize=(15,5))
-        ax1.plot(fdemoaudio1x,fdemoaudio1y)
-        ax2.plot(fdemoaudio2x,fdemoaudio2y)
-        plt.show()
+        self.plotGraph(fdemoaudio1x, fdemoaudio1y, "Fourier Audio 1 Recebido")
+        self.plotGraph(fdemoaudio2x, fdemoaudio2y, "Fourier Audio 2 Recebido")
 
         demoaudio1_filtrada = self.LPF(demoaudio1 ,self.fc, self.fs)
-        demoaudio2_filtrada = self.LPF(demoaudio2 ,self.fc, self.fs)    
+        demoaudio2_filtrada = self.LPF(demoaudio2 ,self.fc, self.fs)   
+
+
+        self.plotGraph(np.linspace(0,len(demoaudio1)/self.fs,len(demoaudio1)),demoaudio1, "Sinal no tempo do audio 1 recebido")
+        self.plotGraph(np.linspace(0,len(demoaudio2)/self.fs,len(demoaudio2)),demoaudio2, "Sinal no tempo do audio 2 recebido")
+
+        self.plotGraph(np.linspace(0,len(demoaudio1_filtrada)/self.fs,len(demoaudio1_filtrada)),demoaudio1_filtrada, "Sinal no tempo do audio 1 filtrado recebido")
+        self.plotGraph(np.linspace(0,len(demoaudio2_filtrada)/self.fs,len(demoaudio2_filtrada)),demoaudio2_filtrada, "Sinal no tempo do audio 2 filtrado recebido")
+
+        # self.plotGraph(np.linspace(0,len(demoaudio1)/self.fs,len(demoaudio1)),demoaudio1, "Sinal no tempo do audio 1 recebido")
+        # self.plotGraph(np.linspace(0,len(demoaudio2)/self.fs,len(demoaudio2)),demoaudio2, "Sinal no tempo do audio 2 recebido")
 
         swav.write("audioreceive1.wav",self.fs,demoaudio1_filtrada)
         swav.write("audioreceive2.wav",self.fs,demoaudio2_filtrada)
