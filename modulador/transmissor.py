@@ -68,11 +68,11 @@ class Transmissor:
 		# self.plotGraph(t1, f1_filtrada,"Sinal 1 filtrado por tempo")
 		# self.plotGraph(t2, f2_filtrada,"Sinal 2 filtrado por tempo")
 
-		t1, c1 = self.carFrequencies(f1_filtrada, 9000) # Portadora 1
-		t2, c2 = self.carFrequencies(f2_filtrada, 17000) # Portadora 2
+		t1, c1 = self.carFrequencies(f1_filtrada, 5000) # Portadora 1
+		t2, c2 = self.carFrequencies(f2_filtrada, 14000) # Portadora 2
 
-		# fr1, fq1 = self.calcFFT(c1, self.fs) # Fourier portadora 1
-		# fr2, fq2 = self.calcFFT(c2, self.fs) # Fourier portadora 2
+		fr1, fq1 = self.calcFFT(c1, self.fs) # Fourier portadora 1
+		fr2, fq2 = self.calcFFT(c2, self.fs) # Fourier portadora 2
 		# print("tocando audio 1 filtrado")
 		# xaas = input()
 		# sd.play(f1_filtrada,self.fs)
@@ -82,10 +82,10 @@ class Transmissor:
 		# sd.play(f2_filtrada,self.fs)
 		# sd.wait()
 
-		# fig2, (ax1,ax2) = plt.subplots(1,2,figsize=(15,5))
-		# ax1.plot(fr1,fq1)
-		# ax2.plot(fr2,fq2)
-		# plt.show()
+		fig2, (ax1,ax2) = plt.subplots(1,2,figsize=(15,5))
+		ax1.plot(fr1,fq1)
+		ax2.plot(fr2,fq2)
+		plt.show()
 		# self.plotGraph(fr1, fq1, "FOURIER portadora 1")
 		# self.plotGraph(fr2, fq2, "FOURIER portadora 2")
 
@@ -93,17 +93,17 @@ class Transmissor:
 		modulo2 = f2_filtrada*c2
 		fmodulo1,fq1 = self.calcFFT(modulo1, self.fs) # Fourier portadora 1
 		fmodulo2,fq2 = self.calcFFT(modulo2, self.fs) # Fourier portadora 2
-		self.plotGraph(fmodulo1,fq1, "Fourier modulada 1")
-		self.plotGraph(fmodulo2,fq2, "Fourier modulada 2")
+		# self.plotGraph(fmodulo1,fq1, "Fourier modulada 1")
+		# self.plotGraph(fmodulo2,fq2, "Fourier modulada 2")
 		xm,ym = self.sumLists(modulo1, modulo2)
 		mx,my = self.calcFFT(ym, self.fs) # Fourier portadora 1
-		# self.plotGraph(mx, my, "FOURIER soma modulado ")
+		self.plotGraph(mx, my, "FOURIER soma modulado ")
 
 
-		# print("Clique em um numero para tocar o som")
-		# x = input()
-		# sd.play(ym, self.fs)
-		# sd.wait()
+		print("Clique em um numero para tocar o som")
+		x = input()
+		sd.play(ym, self.fs)
+		sd.wait()
 
 
 		

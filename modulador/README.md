@@ -44,14 +44,6 @@ A banda ocupada pelo sinal é de 7000 _Hz_ pois assim que o arquivo de cada áud
 
 ---
 
-**Fourier das portadorass**
-
-|          Portadora 1        |        Portadora 2       |
-|-----------------------------|--------------------------|
-| ![sinal 1](media/fp1.png)   | ![sinal 2](media/fp2.png)| 
-
----
-
 **Fourier dos sinais filtrados**
 
 |           Sinal 1           |           Sinal 2        |
@@ -60,11 +52,52 @@ A banda ocupada pelo sinal é de 7000 _Hz_ pois assim que o arquivo de cada áud
 
 ---
 
-**Fourier dos sinais filtrados somados**
+**Fourier das portadoras**
 
-![sinal 1](media/fourier_soma.png)
+|          Portadora 1                        |        Portadora 2       |
+|-----------------------------                |--------------------------|
+| ![sinal 1](media/fourier_portadora_1.png)   | ![sinal 2](media/fourie_portadora2.png)| 
 
+---
 
+**Fourier dos sinais modulados**
+
+|          Sinal 1                            |        Sinal 2       |
+|-----------------------------                |--------------------------|
+| ![sinal 1](media/fourier_modulada_1.png)    | ![sinal 2](media/fourier_modulada_2.png)| 
+
+---
+
+**Fourier da soma dos sinais modulados**
+
+![sinal 1](media/fourier_soma_moduladas.png)
+
+---
 
 ### Receptor 
 
+**Sinal recebido no tempo**
+
+![sinal 1](media/final_recebido_tempo.png)
+
+---
+
+**Fourier do sinal recebido**
+
+![sinal 1](media/fourier_sinal_recebido.png)
+
+---
+
+**Fourier do sinal recebido**
+
+|          Sinal 1                                |        Sinal 2       |
+|-----------------------------                    |--------------------------|
+| ![sinal 1](media/sinal_demodulado_tempo1.png)   | ![sinal 2](media/sinal_demodulado_tempo2.png)| 
+
+---
+
+**Fourier do sinal recebido**
+
+|          Sinal 1                                |        Sinal 2       |
+|-----------------------------                    |--------------------------|
+| ![sinal 1](media/fourier_audio_filtrado1.png)   | ![sinal 2](media/fourier_audio_filtrado2.png)| 
